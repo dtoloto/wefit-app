@@ -7,7 +7,7 @@ export const StyledButton = styled.button<IButton>`
   -webkit-appearance: none;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors?.white};
   background-color: ${({ theme, colorSchema = 'primary' }) => theme.colors?.[colorSchema]};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};

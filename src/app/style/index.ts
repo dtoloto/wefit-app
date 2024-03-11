@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.grey3};
     font-family: Open-Sans, Helvetica, Sans-Serif;
     font-weight: 700;
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `
 
