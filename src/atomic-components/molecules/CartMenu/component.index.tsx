@@ -1,13 +1,12 @@
 'use client'
 import React from 'react'
-import { ICartMenu } from './component.types'
 import { StyledCartMenu, StyledTextColumn } from './component.styles'
 import { Text } from '../../atoms'
 import { MdShoppingBasket } from 'react-icons/md'
 import Link from 'next/link'
 import { useCart } from '@/context/CartProvider'
 
-export const CartMenu = ({}: ICartMenu) => {
+export const CartMenu = () => {
   const { cartItems } = useCart()
   return (
     <Link href="/carrinho">
