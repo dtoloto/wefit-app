@@ -1,7 +1,7 @@
 'use client'
 import { ICartItem } from '@/types/cart'
 import { IProduct } from '@/types/product'
-import React, { createContext, useState, useContext, ReactNode } from 'react'
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react'
 
 interface ICartProviderContext {
   cartItems: ICartItem[]
@@ -18,7 +18,20 @@ interface ICartProvider {
 }
 
 export const CartProvider = ({ children }: ICartProvider) => {
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false)
   const [cartItems, setCartItems] = useState<ICartItem[]>([])
+
+  useEffect(() => {
+    const cart = localStorage.getItem('wefit:cart')
+    if (cart) {
+      setCartItems(JSON.parse(cart))
+    }
+    setHasLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (hasLoaded) localStorage.setItem('wefit:cart', JSON.stringify(cartItems))
+  }, [cartItems, hasLoaded])
 
   const addItem = (item: IProduct, quantity: number) => {
     if (quantity <= 0) return

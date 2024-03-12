@@ -35,6 +35,17 @@ export const ProductCard = ({ product }: IProductCard) => {
     removeItem(id)
   }
 
+  const buttonLabel = () => {
+    switch (quantity) {
+      case 0:
+        return 'Adicionar ao Carrinho'
+      case 1:
+        return 'Item Adicionado'
+      default:
+        return 'Itens Adicionados'
+    }
+  }
+
   return (
     <Card>
       <StyledProductCard>
@@ -54,7 +65,7 @@ export const ProductCard = ({ product }: IProductCard) => {
               <MdAddShoppingCart size={14} />
               <span>{quantity}</span>
             </div>
-            {quantity > 0 ? 'Item Adicionado' : 'Adicionar ao Carrinho'}
+            {buttonLabel()}
           </StyledButtonContent>
         </Button>
       </StyledProductCard>
