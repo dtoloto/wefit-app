@@ -5,6 +5,7 @@ import { defaultTheme } from '../style/theme'
 import StyledComponentsRegistry from '@/lib/registry'
 import GlobalStyle from '../style'
 import { Container, Header } from '@/atomic-components'
+import { CartProvider } from '@/context/CartProvider'
 
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400', '600', '700'] })
 
@@ -19,15 +20,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={openSans.className}>
-        <StyledComponentsRegistry>
-          <Container>
-            <Header />
-          </Container>
-          <Container>{children}</Container>
-        </StyledComponentsRegistry>
-      </body>
-    </html>
+    <CartProvider>
+      <html lang="pt-br">
+        <body className={openSans.className}>
+          <StyledComponentsRegistry>
+            <Container>
+              <Header />
+            </Container>
+            <Container>{children}</Container>
+          </StyledComponentsRegistry>
+        </body>
+      </html>
+    </CartProvider>
   )
 }

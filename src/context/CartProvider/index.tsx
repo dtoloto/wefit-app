@@ -1,3 +1,4 @@
+'use client'
 import { ICartItem } from '@/types/cart'
 import { IProduct } from '@/types/product'
 import React, { createContext, useState, useContext, ReactNode } from 'react'

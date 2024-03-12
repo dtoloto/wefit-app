@@ -5,8 +5,10 @@ import { StyledCartMenu, StyledTextColumn } from './component.styles'
 import { Text } from '../../atoms'
 import { MdShoppingBasket } from 'react-icons/md'
 import Link from 'next/link'
+import { useCart } from '@/context/CartProvider'
 
 export const CartMenu = ({}: ICartMenu) => {
+  const { cartItems } = useCart()
   return (
     <Link href="/carrinho">
       <StyledCartMenu>
@@ -15,7 +17,7 @@ export const CartMenu = ({}: ICartMenu) => {
             Meu Carrinho
           </Text>
           <Text $colorSchema="grey1" $size="xs" $hasMargin={false} $fontWeight="600">
-            0 itens
+            {`${cartItems.length} itens`}
           </Text>
         </StyledTextColumn>
         <MdShoppingBasket size={32} />
