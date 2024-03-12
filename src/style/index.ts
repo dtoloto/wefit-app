@@ -12,6 +12,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: Open-Sans, Helvetica, Sans-Serif;
     font-weight: 700;
     color: ${({ theme }) => theme.colors.white};
+    padding-top: calc(${({ theme }) => theme.header?.height} + 2rem);
+  }
+
+  a { 
+    color: inherit; 
+    text-decoration: none;
   }
 `
 

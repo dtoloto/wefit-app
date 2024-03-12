@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from '../style/theme'
 import StyledComponentsRegistry from '@/lib/registry'
 import GlobalStyle from '../style'
+import { Container, Header } from '@/atomic-components'
 
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400', '600', '700'] })
 
@@ -20,7 +21,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={openSans.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <Container>
+            <Header />
+          </Container>
+          <Container>{children}</Container>
+        </StyledComponentsRegistry>
       </body>
     </html>
   )

@@ -15,6 +15,7 @@ export const defaultTheme = {
     xl: '24px'
   },
   borderRadius: '4px',
+  containerWidth: '960px',
   header: {
     height: '70px'
   }
