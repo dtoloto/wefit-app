@@ -9,6 +9,7 @@ export const StyledButton = styled.button<IButton>`
 
   color: ${({ theme }) => theme.colors?.white};
   background-color: ${({ theme, $colorSchema = 'primary' }) => theme.colors?.[$colorSchema]};
+  font-weight: 700;
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: 11px;

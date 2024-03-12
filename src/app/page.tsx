@@ -1,4 +1,4 @@
-import { Header } from './atomic-components'
+import { Header, ProductCard } from './atomic-components'
 import { Container, Row } from './atomic-components/atoms'
 import { Button } from './atomic-components/atoms/Button'
 import { Card } from './atomic-components/atoms/Card'
@@ -20,12 +20,7 @@ export default function Home() {
         </Text>
 
         <Row mobile={1} desktop={3}>
-          <Card>Teste</Card>
-          <Card>Teste</Card>
-          <Card>Teste</Card>
-          <Card>Teste</Card>
-          <Card>Teste</Card>
-          <Card>Teste</Card>
+          <ProductCard />
         </Row>
       </Container>
     </main>
