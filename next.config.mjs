@@ -4,8 +4,15 @@ const nextConfig = {
   compiler: {
     styledComponents: true
   },
+
   images: {
-    domains: ['wefit-react-web-test.s3.amazonaws.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'wefit-react-web-test.s3.amazonaws.com',
+        pathname: '**'
+      }
+    ]
   }
 }
 

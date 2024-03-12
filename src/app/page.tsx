@@ -9,7 +9,7 @@ export default function Home() {
   const [data, setData] = useState<IProduct[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   useEffect(() => {
-    fetch('http://localhost:3001/products')
+    fetch(process.env.NEXT_PUBLIC_JSON_HOST || '')
       .then((res) => res.json())
       .then((data) => {
         setData(data)
