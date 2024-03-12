@@ -1,5 +1,5 @@
 import { Header } from './atomic-components'
-import { Container } from './atomic-components/atoms'
+import { Container, Row } from './atomic-components/atoms'
 import { Button } from './atomic-components/atoms/Button'
 import { Card } from './atomic-components/atoms/Card'
 import { Loader } from './atomic-components/atoms/Loader'
@@ -18,6 +18,15 @@ export default function Home() {
         <Text $colorSchema="grey1" $size="xs">
           Um Texto
         </Text>
+
+        <Row mobile={1} desktop={3}>
+          <Card>Teste</Card>
+          <Card>Teste</Card>
+          <Card>Teste</Card>
+          <Card>Teste</Card>
+          <Card>Teste</Card>
+          <Card>Teste</Card>
+        </Row>
       </Container>
     </main>
   )
