@@ -1,7 +1,7 @@
 'use client'
 import { IProduct } from '@/types/product'
 import { ProductCard } from '@/atomic-components'
-import { Row } from '@/atomic-components/atoms'
+import { LoaderWrapper, Row } from '@/atomic-components/atoms'
 import { Loader } from '@/atomic-components/atoms/Loader'
 import { useEffect, useState } from 'react'
 
@@ -19,9 +19,9 @@ export default function Home() {
 
   if (loading)
     return (
-      <main>
+      <LoaderWrapper>
         <Loader />
-      </main>
+      </LoaderWrapper>
     )
 
   return (
