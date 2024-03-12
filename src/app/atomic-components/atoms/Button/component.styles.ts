@@ -8,7 +8,7 @@ export const StyledButton = styled.button<IButton>`
   text-transform: uppercase;
 
   color: ${({ theme }) => theme.colors?.white};
-  background-color: ${({ theme, colorSchema = 'primary' }) => theme.colors?.[colorSchema]};
+  background-color: ${({ theme, $colorSchema = 'primary' }) => theme.colors?.[$colorSchema]};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: 11px;
@@ -20,8 +20,8 @@ export const StyledButton = styled.button<IButton>`
     filter: brightness(0.9);
   }
 
-  ${({ block }) =>
-    block &&
+  ${({ $block }) =>
+    $block &&
     `
     width: 100%;
   `}

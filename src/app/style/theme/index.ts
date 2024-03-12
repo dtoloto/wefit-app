@@ -14,5 +14,8 @@ export const defaultTheme = {
     lg: '20px',
     xl: '24px'
   },
-  borderRadius: '4px'
+  borderRadius: '4px',
+  header: {
+    height: '70px'
+  }
 }
