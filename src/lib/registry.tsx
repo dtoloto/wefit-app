@@ -18,11 +18,6 @@ export default function StyledComponentsRegistry({ children }: { children: React
   if (typeof window !== 'undefined') return <>{children}</>
 
   return (
-    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <ThemeProvider theme={defaultTheme}>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
-    </StyleSheetManager>
+    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>
   )
 }

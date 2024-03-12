@@ -6,13 +6,34 @@ import Image from 'next/image'
 import { StyledButtonContent, StyledProductCard } from './component.styles'
 import { MdAddShoppingCart } from 'react-icons/md'
 import { useCart } from '@/context/CartProvider'
+import { formatCurrency } from '@/utils/formatCurreny'
 
 export const ProductCard = ({ product }: IProductCard) => {
   const { image, price, title, id } = product
-  const { findItem, addItem } = useCart()
+  const { findItem, addItem, removeItem } = useCart()
+
+  const [formattedPrice, setformattedPrice] = useState<string>()
+
+  useEffect(() => {
+    setformattedPrice(
+      formatCurrency({
+        amount: price,
+        minimumFractionDigits: 2
+      })
+    )
+  }, [price])
 
   const item = findItem(id)
   const quantity = item ? item.quantity : 0
+
+  const handleClick = () => {
+    if (quantity === 0) {
+      addItem(product, 1)
+      return
+    }
+
+    removeItem(id)
+  }
 
   return (
     <Card>
@@ -21,11 +42,13 @@ export const ProductCard = ({ product }: IProductCard) => {
         <Text $size="xs" $colorSchema="grey2" $hasMargin={false}>
           {title}
         </Text>
-        <Text $size="md">{`R$ ${price.toString()}`}</Text>
+        {!!formattedPrice && <Text $size="md">{formattedPrice}</Text>}
+
         <Button
+          id={id}
           $block
           $colorSchema={quantity > 0 ? 'secondary' : 'primary'}
-          onClick={() => addItem(product, 1)}>
+          onClick={handleClick}>
           <StyledButtonContent>
             <div>
               <MdAddShoppingCart size={14} />

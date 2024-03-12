@@ -1,15 +1,31 @@
+'use client'
 import { IProduct } from '@/types/product'
 import { ProductCard } from '@/atomic-components'
 import { Row } from '@/atomic-components/atoms'
 import { Loader } from '@/atomic-components/atoms/Loader'
+import { useEffect, useState } from 'react'
 
-export default async function Home() {
-  const res = await fetch('http://localhost:3001/products')
-  const data = await res.json()
+export default function Home() {
+  const [data, setData] = useState<IProduct[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  useEffect(() => {
+    fetch('http://localhost:3001/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading)
+    return (
+      <main>
+        <Loader />
+      </main>
+    )
 
   return (
     <main>
-      <Loader />
       <Row $mobile={1} $desktop={3}>
         {data.map(({ id, image, price, title }: IProduct) => (
           <ProductCard
