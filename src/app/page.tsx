@@ -1,11 +1,15 @@
-import { FeedbackCard, Header, ProductCard } from './atomic-components'
-import { Container, Row } from './atomic-components/atoms'
-import { Button } from './atomic-components/atoms/Button'
-import { Card } from './atomic-components/atoms/Card'
-import { Loader } from './atomic-components/atoms/Loader'
-import { Text } from './atomic-components/atoms/Text'
+import { IProduct } from '@/types/product'
+import { FeedbackCard, Header, ProductCard } from '../atomic-components'
+import { Container, Row } from '../atomic-components/atoms'
+import { Button } from '../atomic-components/atoms/Button'
+import { Card } from '../atomic-components/atoms/Card'
+import { Loader } from '../atomic-components/atoms/Loader'
+import { Text } from '../atomic-components/atoms/Text'
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch('http://localhost:3001/products')
+  const data = await res.json()
+
   return (
     <main>
       <Container>
@@ -20,7 +24,17 @@ export default function Home() {
         </Text>
 
         <Row mobile={1} desktop={3}>
-          <ProductCard />
+          {data.map(({ id, image, price, title }: IProduct) => (
+            <ProductCard
+              key={id}
+              product={{
+                image,
+                price,
+                title,
+                id
+              }}
+            />
+          ))}
         </Row>
 
         <FeedbackCard

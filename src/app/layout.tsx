@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './style/theme'
+import { defaultTheme } from '../style/theme'
 import StyledComponentsRegistry from '@/lib/registry'
-import GlobalStyle from './style'
+import GlobalStyle from '../style'
 
 const openSans = Open_Sans({ subsets: ['latin'], weight: ['400', '600', '700'] })
 

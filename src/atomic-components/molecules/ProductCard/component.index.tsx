@@ -6,20 +6,15 @@ import Image from 'next/image'
 import { StyledButtonContent, StyledProductCard } from './component.styles'
 import { MdAddShoppingCart } from 'react-icons/md'
 
-export const ProductCard = ({}: IProductCard) => {
+export const ProductCard = ({ product: { image, price, title, id } }: IProductCard) => {
   return (
     <Card>
       <StyledProductCard>
-        <Image
-          alt="dasd"
-          src="https://wefit-react-web-test.s3.amazonaws.com/viuva-negra.png"
-          width={147}
-          height={188}
-        />
+        <Image alt="dasd" src={image} width={147} height={188} />
         <Text $size="xs" $colorSchema="grey2" $hasMargin={false}>
-          Viúva Negra
+          {title}
         </Text>
-        <Text $size="md">R$ 29,99</Text>
+        <Text $size="md">{`R$ ${price.toString()}`}</Text>
         <Button $block>
           <StyledButtonContent>
             <div>
