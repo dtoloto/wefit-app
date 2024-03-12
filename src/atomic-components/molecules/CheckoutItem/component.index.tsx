@@ -13,14 +13,15 @@ import {
 } from './component.styles'
 import Image from 'next/image'
 import { MdDelete } from 'react-icons/md'
-import { Text } from '@/atomic-components/atoms'
+import { Button, QuantityInput, Text } from '@/atomic-components/atoms'
 import { formatCurrency } from '@/utils/formatCurreny'
 import { useCart } from '@/context/CartProvider'
 
-export const CheckoutItem = ({ product: { id, image, price, title, quantity } }: ICheckoutItem) => {
+export const CheckoutItem = ({ product }: ICheckoutItem) => {
+  const { id, image, price, title, quantity } = product
   const [subtotal, setSubtotal] = useState<string>()
   const [formattedPrice, setformattedPrice] = useState<string>()
-  const { removeItem } = useCart()
+  const { removeItem, addItem } = useCart()
 
   useEffect(() => {
     setformattedPrice(
@@ -40,6 +41,21 @@ export const CheckoutItem = ({ product: { id, image, price, title, quantity } }:
     )
   }, [price, quantity])
 
+  const onAdd = () => {
+    addItem(product, quantity + 1)
+  }
+
+  const onRemove = () => {
+    addItem(product, quantity - 1)
+  }
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value)
+    if (value > 0) {
+      addItem(product, value)
+    }
+  }
+
   return (
     <StyledCheckoutItem>
       <StyledColumnZero>
@@ -56,7 +72,9 @@ export const CheckoutItem = ({ product: { id, image, price, title, quantity } }:
         {!!formattedPrice && <Text $size="md">{formattedPrice}</Text>}
       </StyledColumnTwo>
 
-      <StyledColumnThree>Ajuste Quantidade</StyledColumnThree>
+      <StyledColumnThree>
+        <QuantityInput quantity={quantity} onAdd={onAdd} onRemove={onRemove} onChange={onChange} />
+      </StyledColumnThree>
 
       <StyledColumnFour>
         <span>

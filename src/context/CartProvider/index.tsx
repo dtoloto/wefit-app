@@ -21,6 +21,7 @@ export const CartProvider = ({ children }: ICartProvider) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([])
 
   const addItem = (item: IProduct, quantity: number) => {
+    if (quantity <= 0) return
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
 
     if (existingItem) {
