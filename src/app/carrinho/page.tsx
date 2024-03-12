@@ -1,5 +1,5 @@
 'use client'
-import { FeedbackCard } from '@/atomic-components'
+import { CheckoutCard, FeedbackCard } from '@/atomic-components'
 import { useCart } from '@/context/CartProvider'
 
 export default function Cart() {
@@ -19,5 +19,5 @@ export default function Cart() {
       </main>
     )
 
-  return <main>Teste</main>
+  return <CheckoutCard />
 }
