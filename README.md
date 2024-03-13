@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Challenge React + TypeScript + styled-components
 
-## Getting Started
+The challenge consists of creating a simplified e-commerce website from scratch, where the candidate will have to create a flow with three modules/screens.
 
-First, run the development server:
+They are:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ - **Home**: Where they will have to make a request to the API, thus
+   bringing the list of movies that can be added to the cart. 
+   
+   **Cart**: Where they can see the items that have been added, totaling the
+   overall value based on each added item, with the option to remove an
+   item from the cart. By default, if the cart has no items added, the
+   empty screen should appear with the option to return to the home
+   screen. 
+   
+   **Purchase** completed: After confirming the order on the previous
+   screen, the user should be redirected to the confirmed order screen.
+   Here, the user will also have the option to return to the home
+   screen.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Figma Prototype](https://www.figma.com/file/0ZyTELvPCSCnib16XG49YP/Teste-Front-React-WeFit---2022?node-id=0:1)
+[DEMO](https://wefit-app.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project was created using NextJS 14, so to run it locally, it's recommended to use `Node.js version >= v18.17.0`. In my case, I used `Node.js version 21` :
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ - `nvm install 21`
+ - ` nvm use 21`
 
-## Learn More
+Before running it, please create a `.env.local`  file following the `.env.example`.
 
-To learn more about Next.js, take a look at the following resources:
+The steps to run it locally are:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ 1. Install all the dependencies using `yarn install` 
+ 2. Run the following command to start the json-server `json-server`
+ 2. Run `yarn dev` 
+ 3. The application should be available in `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ 
