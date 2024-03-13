@@ -1,5 +1,7 @@
 # Challenge React + TypeScript + styled-components
 
+[DEMO](https://wefit-app.vercel.app/)
+
 The challenge consists of creating a simplified e-commerce website from scratch, where the candidate will have to create a flow with three modules/screens.
 
 They are:
@@ -19,7 +21,6 @@ They are:
    screen.
 
 [Figma Prototype](https://www.figma.com/file/0ZyTELvPCSCnib16XG49YP/Teste-Front-React-WeFit---2022?node-id=0:1)
-[DEMO](https://wefit-app.vercel.app/)
 
 The project was created using NextJS 14, so to run it locally, it's recommended to use `Node.js version >= v18.17.0`. In my case, I used `Node.js version 21` :
 
